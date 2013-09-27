@@ -3,7 +3,7 @@
 namespace dngine{
 	Sprite::Sprite(SDL_Renderer *r, std::string fname){
 		filename = fname;
-		image = load_image(r, filename);
+		image = load_image(r);
 	}
 
 	Sprite::~Sprite(){
@@ -29,8 +29,8 @@ namespace dngine{
 		return location;
 	}
 
-	SDL_Texture* Sprite::load_image(SDL_Renderer *r, std::string fname){
-		SDL_Texture *i = IMG_LoadTexture(r, fname.c_str());
+	SDL_Texture* Sprite::load_image(SDL_Renderer *r){
+		SDL_Texture *i = IMG_LoadTexture(r, filename.c_str());
 		return i;
 	}
 

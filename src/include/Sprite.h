@@ -11,7 +11,7 @@ namespace dngine{
 			std::string filename;
 			SDL_Texture *image;
 			SDL_Rect *location;
-			SDL_Texture *load_image(SDL_Renderer *r, std::string fname);
+			SDL_Texture *load_image(SDL_Renderer *r);
 		public:
 			Sprite(SDL_Renderer *r, std::string fname);
 			~Sprite();
