@@ -19,7 +19,7 @@ namespace dngine{
 			void setLocation(SDL_Rect *loc);
 			void setLocation(int x, int y, int h, int w);
 			SDL_Rect *getLocation() const;
-			void render();
+			void render(SDL_Renderer *r);
 	};
 }
 
