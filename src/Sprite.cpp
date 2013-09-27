@@ -6,6 +6,10 @@ namespace dngine{
 		image = load_image(r, filename);
 	}
 
+	Sprite::~Sprite(){
+		SDL_DestroyTexture(image);
+	}
+
 	SDL_Texture* Sprite::getTexture(){
 		return image;
 	}

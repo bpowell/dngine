@@ -14,6 +14,7 @@ namespace dngine{
 			SDL_Texture *load_image(SDL_Renderer *r, std::string fname);
 		public:
 			Sprite(SDL_Renderer *r, std::string fname);
+			~Sprite();
 			SDL_Texture *getTexture();
 			void setLocation(SDL_Rect *loc);
 			void setLocation(int x, int y, int h, int w);
