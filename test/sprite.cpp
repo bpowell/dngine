@@ -20,6 +20,7 @@ int main()
 	// put the location where we want the texture to be drawn into a rectangle
 	// I'm also scaling the texture 2x simply by setting the width and height
 	SDL_Rect texr; texr.x = WIDTH/2; texr.y = HEIGHT/2; texr.w = w*2; texr.h = h*2; 
+	s->setLocation(&texr);
 
 	// main loop
 	while (1) {
@@ -36,7 +37,7 @@ int main()
 		// clear the screen
 		SDL_RenderClear(renderer);
 		// copy the texture to the rendering context
-		SDL_RenderCopy(renderer, img, NULL, &texr);
+		SDL_RenderCopy(renderer, img, NULL, s->getLocation());
 		// flip the backbuffer
 		// this means that everything that we prepared behind the screens is actually shown
 		SDL_RenderPresent(renderer);

@@ -10,10 +10,14 @@ namespace dngine{
 		private:
 			std::string filename;
 			SDL_Texture *image;
+			SDL_Rect *location;
 			SDL_Texture *load_image(SDL_Renderer *r, std::string fname);
 		public:
 			Sprite(SDL_Renderer *r, std::string fname);
 			SDL_Texture *getTexture();
+			void setLocation(SDL_Rect *loc);
+			void setLocation(int x, int y, int h, int w);
+			SDL_Rect *getLocation() const;
 			void render();
 	};
 }
