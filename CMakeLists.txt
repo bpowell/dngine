@@ -21,14 +21,17 @@ INCLUDE_DIRECTORIES(${DNGINE_HEADERS_DIR} /usr/local/lib/SDL2) #/usr/local/lib/S
 FILE(GLOB DNGINE_SRC ${DNGINE_SOURCE_DIR}/*.cpp)
 ADD_LIBRARY(dngine ${DNGINE_SRC})
 
-ADD_EXECUTABLE(test_sprite test/sprite)
 #Added "/usr/local/lib" to /etc/ld.so.conf
 ##Ran sudo ldconfig
 ##Used to static link to SDL2 libs
+ADD_EXECUTABLE(test_sprite test/sprite)
 TARGET_LINK_LIBRARIES(test_sprite dngine ${SDL_LIBS})
+ADD_EXECUTABLE(test_screen test/screen)
+TARGET_LINK_LIBRARIES(test_screen dngine ${SDL_LIBS})
 
 SET(TEST_EXE
 	${dngine_BINARY_DIR}/test_sprite
+	${dngine_BINARY_DIR}/test_screen
 )
 
 INSTALL(FILES ${HEADERS} DESTINATION include)
