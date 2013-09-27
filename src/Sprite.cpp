@@ -1,20 +1,17 @@
 #include <Sprite.h>
 
 namespace dngine{
-	Sprite::Sprite(std::string fname){
+	Sprite::Sprite(SDL_Renderer *r, std::string fname){
 		filename = fname;
-		image = load_image(filename);
+		image = load_image(r, filename);
 	}
 
-	SDL_Surface* Sprite::load_image(std::string fname){
-		SDL_Surface *loaded = NULL, *optimized = NULL;
-		loaded = IMG_Load(fname.c_str());
+	SDL_Texture* Sprite::getTexture(){
+		return image;
+	}
 
-		if(loaded!=NULL){
-			optimized = SDL_DisplayFormatAlpha(loaded);
-			SDL_FreeSurface(loaded);
-		}
-
-		return optimized;
+	SDL_Texture* Sprite::load_image(SDL_Renderer *r, std::string fname){
+		SDL_Texture *i = IMG_LoadTexture(r, fname.c_str());
+		return i;
 	}
 }

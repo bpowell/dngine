@@ -2,17 +2,18 @@
 #define _SPRITE_H_
 
 #include <string>
-#include "SDL/SDL.h"
-#include "SDL/SDL_image.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 namespace dngine{
 	class Sprite{
 		private:
 			std::string filename;
-			SDL_Surface *image;
-			SDL_Surface *load_image(std::string fname);
+			SDL_Texture *image;
+			SDL_Texture *load_image(SDL_Renderer *r, std::string fname);
 		public:
-			Sprite(std::string fname);
+			Sprite(SDL_Renderer *r, std::string fname);
+			SDL_Texture *getTexture();
 			void render();
 	};
 }
