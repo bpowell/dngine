@@ -13,4 +13,8 @@ namespace dngine{
 	SDL_Renderer* Screen::getRenderer(){
 		return renderer;
 	}
+
+	void Screen::add_sprite(std::string name, Sprite *s){
+		sprites.insert(std::pair<std::string,Sprite*>(name,s));
+	}
 }
