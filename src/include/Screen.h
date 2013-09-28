@@ -18,6 +18,8 @@ namespace dngine{
 			~Screen();
 			SDL_Renderer *getRenderer();
 			void add_sprite(std::string name, Sprite *s);
+			void remove_sprite(std::string name);
+			void render();
 	};
 }
 

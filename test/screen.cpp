@@ -14,6 +14,7 @@ int main()
 	win = SDL_CreateWindow("Image Loading", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0);
 	dngine::Screen *screen = new dngine::Screen(win, "Main Screen");
 	dngine::Sprite *s = new dngine::Sprite(screen->getRenderer(), "toon.png");
+	screen->add_sprite("one", s);
 	int w, h;
 	SDL_QueryTexture(s->getTexture(), NULL, NULL, &w, &h); // get the width and height of the texture
 	// put the location where we want the texture to be drawn into a rectangle
@@ -33,13 +34,7 @@ int main()
 				break;
 		} 
 
-		// clear the screen
-		SDL_RenderClear(screen->getRenderer());
-		// copy the texture to the rendering context
-		s->render(screen->getRenderer());
-		// flip the backbuffer
-		// this means that everything that we prepared behind the screens is actually shown
-		SDL_RenderPresent(screen->getRenderer());
+		screen->render();
 
 	}
 

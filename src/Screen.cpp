@@ -17,4 +17,20 @@ namespace dngine{
 	void Screen::add_sprite(std::string name, Sprite *s){
 		sprites.insert(std::pair<std::string,Sprite*>(name,s));
 	}
+
+	void Screen::remove_sprite(std::string name){
+		sprites.erase(name);
+	}
+
+	void Screen::render(){
+		SDL_RenderClear(renderer);
+		std::map<std::string, Sprite*>::iterator it;
+
+		for(it=sprites.begin(); it!=sprites.end(); ++it){
+			Sprite *sprite = it->second;
+			SDL_RenderCopy(renderer, sprite->getTexture(), NULL, sprite->getLocation());
+		}
+
+		 SDL_RenderPresent(renderer);
+	}
 }
