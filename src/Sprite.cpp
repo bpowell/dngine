@@ -33,8 +33,4 @@ namespace dngine{
 		SDL_Texture *i = IMG_LoadTexture(r, filename.c_str());
 		return i;
 	}
-
-	void Sprite::render(SDL_Renderer *r){
-		SDL_RenderCopy(r, image, NULL, location);
-	}
 }

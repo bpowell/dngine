@@ -11,6 +11,7 @@ int main()
 {
 	dngine::Game *game = new dngine::Game("Hello", 800, 600);
 	dngine::Screen *screen = new dngine::Screen(game->get_window(), "Main Screen");
+	game->set_screen(screen);
 	dngine::Sprite *s = new dngine::Sprite(screen->getRenderer(), "toon.png");
 	screen->add_sprite("one", s);
 	int w, h;
@@ -32,7 +33,7 @@ int main()
 				break;
 		} 
 
-		screen->render();
+		game->render();
 
 	}
 

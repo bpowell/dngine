@@ -23,4 +23,8 @@ namespace dngine{
 	void Game::set_screen(Screen *s){
 		screen = s;
 	}
+
+	void Game::render(){
+		screen->render();
+	}
 }

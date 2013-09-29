@@ -15,6 +15,7 @@ namespace dngine{
 			~Game();
 			SDL_Window *get_window();
 			void set_screen(Screen *s);
+			void render();
 	};
 }
 

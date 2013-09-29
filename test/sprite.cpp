@@ -36,7 +36,6 @@ int main()
 		// clear the screen
 		SDL_RenderClear(renderer);
 		// copy the texture to the rendering context
-		s->render(renderer);
 		// flip the backbuffer
 		// this means that everything that we prepared behind the screens is actually shown
 		SDL_RenderPresent(renderer);
