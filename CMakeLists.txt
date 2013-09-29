@@ -28,6 +28,8 @@ ADD_EXECUTABLE(test_sprite test/sprite)
 TARGET_LINK_LIBRARIES(test_sprite dngine ${SDL_LIBS})
 ADD_EXECUTABLE(test_screen test/screen)
 TARGET_LINK_LIBRARIES(test_screen dngine ${SDL_LIBS})
+ADD_EXECUTABLE(test_game test/game)
+TARGET_LINK_LIBRARIES(test_game dngine ${SDL_LIBS})
 
 SET(TEST_EXE
 	${dngine_BINARY_DIR}/test_sprite
