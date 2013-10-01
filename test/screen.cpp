@@ -12,7 +12,8 @@ int main()
 		return 1;
 	SDL_Window *win = NULL;
 	win = SDL_CreateWindow("Image Loading", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0);
-	dngine::Screen *screen = new dngine::Screen(win, "Main Screen");
+	SDL_Renderer *r = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
+	dngine::Screen *screen = new dngine::Screen(r);
 	dngine::Sprite *s = new dngine::Sprite(screen->getRenderer(), "toon.png");
 	screen->add_sprite("one", s);
 	int w, h;

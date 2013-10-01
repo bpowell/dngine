@@ -10,11 +10,9 @@
 namespace dngine{
 	class Screen{
 		private:
-			std::string screen_name;
 			SDL_Renderer *renderer;
 			std::map<std::string, Sprite*> sprites;
 		public:
-			Screen(SDL_Window *win, std::string name);
 			Screen(SDL_Renderer *r);
 			~Screen();
 			SDL_Renderer *getRenderer();
