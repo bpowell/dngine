@@ -15,6 +15,7 @@ namespace dngine{
 			std::map<std::string, Sprite*> sprites;
 		public:
 			Screen(SDL_Window *win, std::string name);
+			Screen(SDL_Renderer *r);
 			~Screen();
 			SDL_Renderer *getRenderer();
 			void add_sprite(std::string name, Sprite *s);

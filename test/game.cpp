@@ -10,7 +10,7 @@
 int main()
 {
 	dngine::Game *game = new dngine::Game("Hello", 800, 600);
-	dngine::Screen *screen = new dngine::Screen(game->get_window(), "Main Screen");
+	dngine::Screen *screen = game->create_screen("screen1");
 	game->set_screen(screen);
 	dngine::Sprite *s = new dngine::Sprite(screen->getRenderer(), "toon.png");
 	screen->add_sprite("one", s);

@@ -5,6 +5,10 @@ namespace dngine{
 		screen_name = name;
 		renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
 	}
+
+	Screen::Screen(SDL_Renderer *r){
+		renderer = r;
+	}
 	
 	Screen::~Screen(){
 		SDL_DestroyRenderer(renderer);
