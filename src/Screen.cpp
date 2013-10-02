@@ -17,6 +17,11 @@ namespace dngine{
 		sprites.insert(std::pair<std::string,Sprite*>(name,s));
 	}
 
+	void Screen::set_camera_and_follow(SDL_Rect *pos, Sprite *s){
+		camera = new Camera(pos);
+		camera->set_follow_sprite(s);
+	}
+
 	void Screen::remove_sprite(std::string name){
 		sprites.erase(name);
 	}
