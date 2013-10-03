@@ -16,7 +16,7 @@ namespace dngine{
 		using boost::property_tree::ptree;
 		ptree pt;
 
-		read_json(map_name, pt);
+		read_json(filename, pt);
 
 		map_name = pt.get<std::string>("name");
 		width = pt.get<int>("width");
