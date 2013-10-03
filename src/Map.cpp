@@ -4,10 +4,11 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 #include <boost/property_tree/json_parser.hpp>
+#include <boost/multi_array.hpp>
 
 namespace dngine{
 	Map::Map(std::string name){
-		map_name = name;
+		filename = name;
 		load();
 	}
 
@@ -17,6 +18,7 @@ namespace dngine{
 
 		read_json(map_name, pt);
 
+		map_name = pt.get<std::string>("name");
 		width = pt.get<int>("width");
 		height = pt.get<int>("height");
 	}
