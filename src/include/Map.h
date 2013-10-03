@@ -10,6 +10,7 @@ namespace dngine{
 			std::string tilesheet;
 			int width;
 			int height;
+			void load();
 		public:
 			Map(std::string name);
 	};
