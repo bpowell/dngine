@@ -38,5 +38,17 @@ namespace dngine{
 			x++;
 			y=0;
 		}
+
+		//Loads tile properties
+		BOOST_FOREACH(ptree::value_type &v, pt.get_child("tiles"))
+		{
+			properties p;
+			int number =  atoi(v.first.data());
+			BOOST_FOREACH(ptree::value_type &v2, v.second)
+			{
+				p.insert(std::pair<std::string,std::string>(v2.first.data(), v2.second.data()));
+			}
+			tile_info.insert(std::pair<int,properties>(number, p));
+		}
 	}
 }
