@@ -32,7 +32,7 @@ namespace dngine{
 
 		for(it=sprites.begin(); it!=sprites.end(); ++it){
 			Sprite *sprite = it->second;
-			SDL_RenderCopy(renderer, sprite->getTexture(), NULL, sprite->getLocation());
+			sprite->render();
 		}
 
 		 SDL_RenderPresent(renderer);

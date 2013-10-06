@@ -8,6 +8,7 @@
 namespace dngine{
 	class Sprite{
 		private:
+			SDL_Renderer *renderer;
 			std::string filename;
 			SDL_Texture *image;
 			SDL_Rect *location;
@@ -19,6 +20,14 @@ namespace dngine{
 			void setLocation(SDL_Rect *loc);
 			void setLocation(int x, int y, int h, int w);
 			SDL_Rect *getLocation() const;
+			void render();
+	};
+
+	class SpriteSheet : public Sprite{
+		private:
+			SDL_Rect *clip_size;
+		public:
+			SpriteSheet(SDL_Renderer *r, std::string fname, SDL_Rect *size);
 	};
 }
 

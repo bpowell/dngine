@@ -2,6 +2,7 @@
 
 namespace dngine{
 	Sprite::Sprite(SDL_Renderer *r, std::string fname){
+		renderer = r;
 		filename = fname;
 		image = load_image(r);
 	}
@@ -32,5 +33,9 @@ namespace dngine{
 	SDL_Texture* Sprite::load_image(SDL_Renderer *r){
 		SDL_Texture *i = IMG_LoadTexture(r, filename.c_str());
 		return i;
+	}
+
+	void Sprite::render(){
+		SDL_RenderCopy(renderer, image, NULL, location);
 	}
 }
