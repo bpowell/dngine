@@ -16,10 +16,10 @@ namespace dngine{
 		public:
 			Sprite(SDL_Renderer *r, std::string fname);
 			~Sprite();
-			SDL_Texture *getTexture();
-			void setLocation(SDL_Rect *loc);
-			void setLocation(int x, int y, int h, int w);
-			SDL_Rect *getLocation() const;
+			SDL_Texture *get_texture();
+			void set_location(SDL_Rect *loc);
+			void set_location(int x, int y, int h, int w);
+			SDL_Rect *get_location() const;
 			void render();
 	};
 

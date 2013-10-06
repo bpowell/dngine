@@ -11,22 +11,22 @@ namespace dngine{
 		SDL_DestroyTexture(image);
 	}
 
-	SDL_Texture* Sprite::getTexture(){
+	SDL_Texture* Sprite::get_texture(){
 		return image;
 	}
 
-	void Sprite::setLocation(SDL_Rect *loc){
+	void Sprite::set_location(SDL_Rect *loc){
 		location = loc;
 	}
 
-	void Sprite::setLocation(int x, int y, int h, int w){
+	void Sprite::set_location(int x, int y, int h, int w){
 		location->x = x;
 		location->y = y;
 		location->h = h;
 		location->w = w;
 	}
 
-	SDL_Rect* Sprite::getLocation() const{
+	SDL_Rect* Sprite::get_location() const{
 		return location;
 	}
 

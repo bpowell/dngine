@@ -17,7 +17,7 @@ namespace dngine{
 		public:
 			Screen(SDL_Renderer *r);
 			~Screen();
-			SDL_Renderer *getRenderer();
+			SDL_Renderer *get_renderer();
 			void add_sprite(std::string name, Sprite *s);
 			void set_camera_and_follow(SDL_Rect *pos, Sprite *s);
 			void remove_sprite(std::string name);

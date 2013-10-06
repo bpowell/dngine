@@ -9,7 +9,7 @@ namespace dngine{
 		SDL_DestroyRenderer(renderer);
 	}
 
-	SDL_Renderer* Screen::getRenderer(){
+	SDL_Renderer* Screen::get_renderer(){
 		return renderer;
 	}
 

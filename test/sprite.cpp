@@ -15,11 +15,11 @@ int main()
 	renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
 	dngine::Sprite *s = new dngine::Sprite(renderer, "toon.png");
 	int w, h;
-	SDL_QueryTexture(s->getTexture(), NULL, NULL, &w, &h); // get the width and height of the texture
+	SDL_QueryTexture(s->get_texture(), NULL, NULL, &w, &h); // get the width and height of the texture
 	// put the location where we want the texture to be drawn into a rectangle
 	// I'm also scaling the texture 2x simply by setting the width and height
 	SDL_Rect texr; texr.x = WIDTH/2; texr.y = HEIGHT/2; texr.w = w*2; texr.h = h*2; 
-	s->setLocation(&texr);
+	s->set_location(&texr);
 
 	// main loop
 	while (1) {
