@@ -32,6 +32,8 @@ ADD_EXECUTABLE(test_game test/game)
 TARGET_LINK_LIBRARIES(test_game dngine ${SDL_LIBS})
 ADD_EXECUTABLE(test_map test/map)
 TARGET_LINK_LIBRARIES(test_map dngine ${SDL_LIBS})
+ADD_EXECUTABLE(test_spritesheet test/spritesheet)
+TARGET_LINK_LIBRARIES(test_spritesheet dngine ${SDL_LIBS})
 
 SET(TEST_EXE
 	${dngine_BINARY_DIR}/test_sprite
