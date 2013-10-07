@@ -20,9 +20,10 @@ int main()
 	s->set_location(&texr);
 
 	SDL_Rect size; size.x=size.y=0; size.w=size.h=40;
-	dngine::SpriteSheet *sheet = new dngine::SpriteSheet(screen->get_renderer(), "toon.png", &size);
+	dngine::SpriteSheet *sheet = new dngine::SpriteSheet(screen->get_renderer(), "toon.png", &size, 4, 0);
+	sheet->set_clip(3,0);
 	screen->add_sprite("two", sheet);
-	SDL_Rect loc; loc.x=loc.y=0; loc.h=loc.w=60;
+	SDL_Rect loc; loc.x=loc.y=0; loc.h=loc.w=140;
 	sheet->set_location(&loc);
 
 	// main loop
