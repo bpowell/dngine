@@ -1,9 +1,12 @@
 #ifndef _MAP_H_
 #define _MAP_H_
 
+#include <Sprite.h>
+
 #include <string>
 #include <map>
 #include <boost/multi_array.hpp>
+#include <SDL2/SDL.h>
 
 namespace dngine{
 	class Map{
@@ -21,9 +24,14 @@ namespace dngine{
 			map_array map_layout;
 			tile_properties tile_info;
 
+			SpriteSheet *spritesheet;
+			SDL_Renderer *renderer;
+
 			void load();
+			void load_spritesheet();
 		public:
-			Map(std::string name);
+			Map(std::string name, SDL_Renderer *r);
+			void render();
 	};
 }
 

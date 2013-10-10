@@ -15,7 +15,7 @@ namespace dngine{
 		clip.w = clip_size->w;
 		clip.h = clip_size->h;
 
-		SDL_RenderCopy(renderer, image, &clip, location);
+		SDL_RenderCopy(renderer, image, NULL, location);
 	}
 
 	void SpriteSheet::set_clip(int x, int y){

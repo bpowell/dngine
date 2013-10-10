@@ -15,13 +15,21 @@ int main()
 	game->set_screen(screen);
 	dngine::Sprite *s = new dngine::Sprite(screen->get_renderer(), "toon.png");
 	screen->add_sprite("one", s);
-	dngine::Map *world_map = new dngine::Map("world_map.json");
+	dngine::Map *world_map = new dngine::Map("world_map.json", screen->get_renderer());
+	screen->set_map(world_map);
 	int w, h;
 	SDL_QueryTexture(s->get_texture(), NULL, NULL, &w, &h); // get the width and height of the texture
 	// put the location where we want the texture to be drawn into a rectangle
 	// I'm also scaling the texture 2x simply by setting the width and height
 	SDL_Rect texr; texr.x = WIDTH/2; texr.y = HEIGHT/2; texr.w = w*2; texr.h = h*2; 
 	s->set_location(&texr);
+
+	//SDL_Rect size; size.x=size.y=0; size.w=size.h=80;
+	//dngine::SpriteSheet *sheet = new dngine::SpriteSheet(screen->get_renderer(), "tiles.png", &size, 4, 0);
+	//sheet->set_clip(3,0);
+	//screen->add_sprite("two", sheet);
+	//SDL_Rect loc; loc.x=loc.y=30; loc.h=loc.w=140;
+	//sheet->set_location(&loc);
 
 	// main loop
 	while (1) {

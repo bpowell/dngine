@@ -1,4 +1,5 @@
 #include <Map.h>
+#include <stdio.h>
 
 #include <boost/foreach.hpp>
 #include <boost/property_tree/ptree.hpp>
@@ -7,9 +8,11 @@
 #include <boost/multi_array.hpp>
 
 namespace dngine{
-	Map::Map(std::string name){
+	Map::Map(std::string name, SDL_Renderer *r){
 		filename = name;
+		renderer = r;
 		load();
+		load_spritesheet();
 	}
 
 	void Map::load(){
@@ -50,5 +53,18 @@ namespace dngine{
 			}
 			tile_info.insert(std::pair<int,properties>(number, p));
 		}
+	}
+
+	void Map::load_spritesheet(){
+		SDL_Rect clip_size;
+		clip_size.x=clip_size.y=0;
+		clip_size.w=clip_size.h=80;
+		spritesheet = new SpriteSheet(renderer, tilesheet, &clip_size, 3, 0);
+		spritesheet->set_clip(2,0);
+		spritesheet->set_location(0,0,80,80);
+	}
+
+	void Map::render(){
+		spritesheet->render();
 	}
 }

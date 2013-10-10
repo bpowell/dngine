@@ -2,6 +2,7 @@ CMAKE_MINIMUM_REQUIRED (VERSION 2.8)
 PROJECT (dngine)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g3")
+ADD_DEFINITIONS("-std=c++0x")
 
 #Commented out for SDL2 switch.
 ##Need to fix to look for SDL2 libs

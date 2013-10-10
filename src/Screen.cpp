@@ -3,6 +3,7 @@
 namespace dngine{
 	Screen::Screen(SDL_Renderer *r){
 		renderer = r;
+		map = NULL;
 	}
 	
 	Screen::~Screen(){
@@ -17,6 +18,10 @@ namespace dngine{
 		sprites.insert(std::pair<std::string,Sprite*>(name,s));
 	}
 
+	void Screen::set_map(Map *m){
+		map = m;
+	}
+
 	void Screen::set_camera_and_follow(SDL_Rect *pos, Sprite *s){
 		camera = new Camera(pos);
 		camera->set_follow_sprite(s);
@@ -28,13 +33,16 @@ namespace dngine{
 
 	void Screen::render(){
 		SDL_RenderClear(renderer);
-		std::map<std::string, Sprite*>::iterator it;
 
+		if(map!=NULL)
+			map->render();
+
+		std::map<std::string, Sprite*>::iterator it;
 		for(it=sprites.begin(); it!=sprites.end(); ++it){
 			Sprite *sprite = it->second;
 			sprite->render();
 		}
 
-		 SDL_RenderPresent(renderer);
+		SDL_RenderPresent(renderer);
 	}
 }
