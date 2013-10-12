@@ -7,8 +7,9 @@
 #include <boost/multi_array.hpp>
 
 namespace dngine{
-	Map::Map(std::string name){
+	Map::Map(std::string name, SDL_Renderer *r){
 		filename = name;
+		renderer = r;
 		load();
 	}
 
@@ -50,5 +51,9 @@ namespace dngine{
 			}
 			tile_info.insert(std::pair<int,properties>(number, p));
 		}
+	}
+
+	void Map::load_spritesheet(){
+		spritesheet = new SpriteSheet(renderer, tilesheet, NULL, 0, 0);
 	}
 }

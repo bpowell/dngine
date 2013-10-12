@@ -15,7 +15,7 @@ int main()
 	game->set_screen(screen);
 	dngine::Sprite *s = new dngine::Sprite(screen->get_renderer(), "toon.png");
 	screen->add_sprite("one", s);
-	dngine::Map *world_map = new dngine::Map("world_map.json");
+	dngine::Map *world_map = new dngine::Map("world_map.json", screen->get_renderer());
 	int w, h;
 	SDL_QueryTexture(s->get_texture(), NULL, NULL, &w, &h); // get the width and height of the texture
 	// put the location where we want the texture to be drawn into a rectangle
