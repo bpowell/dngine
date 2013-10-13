@@ -20,6 +20,10 @@ namespace dngine{
 			std::string map_name;
 			std::string tilesheet;
 			SpriteSheet *spritesheet;
+			int tile_width;
+			int tile_height;
+			int tile_max_x;
+			int tile_max_y;
 			SDL_Renderer *renderer;
 			int width;
 			int height;
