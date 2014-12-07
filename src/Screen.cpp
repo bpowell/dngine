@@ -1,15 +1,14 @@
 #include <Screen.h>
 
 namespace dngine{
-	Screen::Screen(SDL_Renderer *r){
+	Screen::Screen(SDL_Renderer_ptr r){
 		renderer = r;
 	}
 	
 	Screen::~Screen(){
-		SDL_DestroyRenderer(renderer);
 	}
 
-	SDL_Renderer* Screen::get_renderer(){
+	SDL_Renderer_ptr Screen::get_renderer(){
 		return renderer;
 	}
 
@@ -27,7 +26,7 @@ namespace dngine{
 	}
 
 	void Screen::render(){
-		SDL_RenderClear(renderer);
+		SDL_RenderClear(renderer.get());
 		std::map<std::string, Sprite*>::iterator it;
 
 		for(it=sprites.begin(); it!=sprites.end(); ++it){
@@ -35,6 +34,6 @@ namespace dngine{
 			sprite->render();
 		}
 
-		 SDL_RenderPresent(renderer);
+		 SDL_RenderPresent(renderer.get());
 	}
 }
