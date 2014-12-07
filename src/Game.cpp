@@ -9,19 +9,18 @@ namespace dngine{
 			exit(-1);
 		}
 
-		window = SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, 0);
+		window = SDL_Window_ptr(SDL_CreateWindow(name.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, 0), SDL_DestroyWindow);
 	}
 
 	Game::~Game(){
-		SDL_DestroyWindow(window);
 	}
 
-	SDL_Window* Game::get_window(){
+	SDL_Window_ptr Game::get_window(){
 		return window;
 	}
 
 	Screen* Game::create_screen(std::string name){
-		SDL_Renderer *r = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+		SDL_Renderer *r = SDL_CreateRenderer(window.get(), -1, SDL_RENDERER_ACCELERATED);
 		Screen *s = new Screen(r);
 
 		return s;
