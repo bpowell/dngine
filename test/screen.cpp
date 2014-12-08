@@ -15,7 +15,7 @@ int main()
 	win = SDL_CreateWindow("Image Loading", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0);
 	SDL_Renderer_ptr r = SDL_Renderer_ptr(SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED), SDL_DestroyRenderer);
 	dngine::Screen *screen = new dngine::Screen(r);
-	dngine::Sprite *s = new dngine::Sprite(screen->get_renderer().get(), "toon.png");
+	dngine::Sprite *s = new dngine::Sprite(screen->get_renderer(), "toon.png");
 	screen->add_sprite("one", s);
 	int w, h;
 	SDL_QueryTexture(s->get_texture(), NULL, NULL, &w, &h); // get the width and height of the texture

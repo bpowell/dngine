@@ -1,14 +1,13 @@
 #include <Sprite.h>
 
 namespace dngine{
-	Sprite::Sprite(SDL_Renderer *r, std::string fname){
+	Sprite::Sprite(SDL_Renderer_ptr r, std::string fname){
 		renderer = r;
 		filename = fname;
-		image = load_image(r);
+		image = load_image();
 	}
 
 	Sprite::~Sprite(){
-		SDL_DestroyTexture(image);
 	}
 
 	SDL_Texture* Sprite::get_texture(){
@@ -30,12 +29,12 @@ namespace dngine{
 		return location;
 	}
 
-	SDL_Texture* Sprite::load_image(SDL_Renderer *r){
-		SDL_Texture *i = IMG_LoadTexture(r, filename.c_str());
+	SDL_Texture* Sprite::load_image(){
+		SDL_Texture *i = IMG_LoadTexture(renderer.get(), filename.c_str());
 		return i;
 	}
 
 	void Sprite::render(){
-		SDL_RenderCopy(renderer, image, NULL, location);
+		SDL_RenderCopy(renderer.get(), image, NULL, location);
 	}
 }

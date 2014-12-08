@@ -24,7 +24,7 @@ namespace dngine{
 			int tile_height;
 			int tile_max_x;
 			int tile_max_y;
-			SDL_Renderer *renderer;
+			SDL_Renderer_ptr renderer;
 			int width;
 			int height;
 			map_array map_layout;
@@ -33,7 +33,7 @@ namespace dngine{
 			void load();
 			void load_spritesheet();
 		public:
-			Map(std::string name, SDL_Renderer *r);
+			Map(std::string name, SDL_Renderer_ptr r);
 	};
 }
 

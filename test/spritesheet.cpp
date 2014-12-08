@@ -12,7 +12,7 @@ int main()
 	dngine::Game *game = new dngine::Game("Hello", 800, 600);
 	dngine::Screen *screen = game->create_screen("screen1");
 	game->set_screen(screen);
-	dngine::Sprite *s = new dngine::Sprite(screen->get_renderer().get(), "toon.png");
+	dngine::Sprite *s = new dngine::Sprite(screen->get_renderer(), "toon.png");
 	screen->add_sprite("one", s);
 	int w, h;
 	SDL_QueryTexture(s->get_texture(), NULL, NULL, &w, &h);
@@ -20,7 +20,7 @@ int main()
 	s->set_location(&texr);
 
 	SDL_Rect size; size.x=size.y=0; size.w=size.h=40;
-	dngine::SpriteSheet *sheet = new dngine::SpriteSheet(screen->get_renderer().get(), "toon.png", &size, 4, 0);
+	dngine::SpriteSheet *sheet = new dngine::SpriteSheet(screen->get_renderer(), "toon.png", &size, 4, 0);
 	sheet->set_clip(3,0);
 	screen->add_sprite("two", sheet);
 	SDL_Rect loc; loc.x=loc.y=0; loc.h=loc.w=140;
