@@ -17,7 +17,7 @@ int main()
 	screen->add_sprite("one", s);
 	dngine::Map *world_map = new dngine::Map("world_map.json", screen->get_renderer());
 	int w, h;
-	SDL_QueryTexture(s->get_texture(), NULL, NULL, &w, &h); // get the width and height of the texture
+	SDL_QueryTexture(s->get_texture().get(), NULL, NULL, &w, &h); // get the width and height of the texture
 	// put the location where we want the texture to be drawn into a rectangle
 	// I'm also scaling the texture 2x simply by setting the width and height
 	SDL_Rect texr; texr.x = WIDTH/2; texr.y = HEIGHT/2; texr.w = w*2; texr.h = h*2; 

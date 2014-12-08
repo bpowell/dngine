@@ -15,7 +15,7 @@ int main()
 	dngine::Sprite *s = new dngine::Sprite(screen->get_renderer(), "toon.png");
 	screen->add_sprite("one", s);
 	int w, h;
-	SDL_QueryTexture(s->get_texture(), NULL, NULL, &w, &h);
+	SDL_QueryTexture(s->get_texture().get(), NULL, NULL, &w, &h);
 	SDL_Rect texr; texr.x = WIDTH/2; texr.y = HEIGHT/2; texr.w = w*2; texr.h = h*2; 
 	s->set_location(&texr);
 

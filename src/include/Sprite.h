@@ -12,13 +12,13 @@ namespace dngine{
 		protected:
 			SDL_Renderer_ptr renderer;
 			std::string filename;
-			SDL_Texture *image;
+			SDL_Texture_ptr image;
 			SDL_Rect *location;
-			SDL_Texture *load_image();
+			void load_image();
 		public:
 			Sprite(SDL_Renderer_ptr r, std::string fname);
 			~Sprite();
-			SDL_Texture *get_texture();
+			SDL_Texture_ptr get_texture();
 			void set_location(SDL_Rect *loc);
 			void set_location(int x, int y, int h, int w);
 			SDL_Rect *get_location() const;
