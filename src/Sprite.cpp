@@ -1,9 +1,7 @@
 #include <Sprite.h>
 
 namespace dngine{
-	Sprite::Sprite(SDL_Renderer_ptr r, std::string fname){
-		renderer = r;
-		filename = fname;
+	Sprite::Sprite(SDL_Renderer_ptr r, std::string fname) : renderer(r), filename(fname) {
 	}
 
 	Sprite::~Sprite(){

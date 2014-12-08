@@ -7,9 +7,7 @@
 #include <boost/multi_array.hpp>
 
 namespace dngine{
-	Map::Map(std::string name, SDL_Renderer_ptr r){
-		filename = name;
-		renderer = r;
+	Map::Map(std::string name, SDL_Renderer_ptr r) : filename(name), renderer(r) {
 		load();
 	}
 

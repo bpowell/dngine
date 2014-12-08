@@ -2,10 +2,7 @@
 
 namespace dngine{
 	SpriteSheet::SpriteSheet(SDL_Renderer_ptr r, std::string fname, SDL_Rect_ptr size, int x, int y)
-		:Sprite(r, fname){ 
-			clip_size = size;
-			max_x = x;
-			max_y = y;
+		: Sprite(r, fname), clip_size(size), max_x(x), max_y(y) {
 	}
 
 	void SpriteSheet::render(){
