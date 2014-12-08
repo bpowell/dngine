@@ -13,7 +13,7 @@ namespace dngine{
 		return image;
 	}
 
-	void Sprite::set_location(SDL_Rect *loc){
+	void Sprite::set_location(SDL_Rect_ptr loc){
 		location = loc;
 	}
 
@@ -24,7 +24,7 @@ namespace dngine{
 		location->w = w;
 	}
 
-	SDL_Rect* Sprite::get_location() const{
+	SDL_Rect_ptr Sprite::get_location() const{
 		return location;
 	}
 
@@ -33,6 +33,6 @@ namespace dngine{
 	}
 
 	void Sprite::render(){
-		SDL_RenderCopy(renderer.get(), image.get(), NULL, location);
+		SDL_RenderCopy(renderer.get(), image.get(), NULL, location.get());
 	}
 }

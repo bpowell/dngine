@@ -7,11 +7,11 @@
 namespace dngine{
 	class Camera{
 		private:
-			SDL_Rect *camera;
+			SDL_Rect_ptr camera;
 			Sprite *sprite;
 		public:
 			Camera(int x, int y, int w, int h);
-			Camera(SDL_Rect *c);
+			Camera(SDL_Rect_ptr c);
 			void set_follow_sprite(Sprite *s);
 			void update();
 	};

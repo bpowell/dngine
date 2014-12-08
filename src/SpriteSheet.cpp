@@ -1,7 +1,7 @@
 #include <Sprite.h>
 
 namespace dngine{
-	SpriteSheet::SpriteSheet(SDL_Renderer_ptr r, std::string fname, SDL_Rect *size, int x, int y)
+	SpriteSheet::SpriteSheet(SDL_Renderer_ptr r, std::string fname, SDL_Rect_ptr size, int x, int y)
 		:Sprite(r, fname){ 
 			clip_size = size;
 			max_x = x;
@@ -15,7 +15,7 @@ namespace dngine{
 		clip.w = clip_size->w;
 		clip.h = clip_size->h;
 
-		SDL_RenderCopy(renderer.get(), image.get(), &clip, location);
+		SDL_RenderCopy(renderer.get(), image.get(), &clip, location.get());
 	}
 
 	void SpriteSheet::set_clip(int x, int y){

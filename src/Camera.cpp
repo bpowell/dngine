@@ -8,7 +8,7 @@ namespace dngine{
 		camera->h = h;
 	}
 
-	Camera::Camera(SDL_Rect *c){
+	Camera::Camera(SDL_Rect_ptr c){
 		camera = c;
 	}
 

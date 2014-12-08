@@ -16,15 +16,15 @@ int main()
 	screen->add_sprite("one", s);
 	int w, h;
 	SDL_QueryTexture(s->get_texture().get(), NULL, NULL, &w, &h);
-	SDL_Rect texr; texr.x = WIDTH/2; texr.y = HEIGHT/2; texr.w = w*2; texr.h = h*2; 
-	s->set_location(&texr);
+    SDL_Rect_ptr texr = SDL_RECT(WIDTH/2, HEIGHT/2, w*2, h*2);
+	s->set_location(texr);
 
-	SDL_Rect size; size.x=size.y=0; size.w=size.h=40;
-	dngine::SpriteSheet *sheet = new dngine::SpriteSheet(screen->get_renderer(), "toon.png", &size, 4, 0);
+    SDL_Rect_ptr size = SDL_RECT(0, 0, 40, 40);
+	dngine::SpriteSheet *sheet = new dngine::SpriteSheet(screen->get_renderer(), "toon.png", size, 4, 0);
 	sheet->set_clip(3,0);
 	screen->add_sprite("two", sheet);
-	SDL_Rect loc; loc.x=loc.y=0; loc.h=loc.w=140;
-	sheet->set_location(&loc);
+    SDL_Rect_ptr loc = SDL_RECT(0, 0, 140, 140);
+	sheet->set_location(loc);
 
 	// main loop
 	while (1) {

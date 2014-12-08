@@ -20,8 +20,8 @@ int main()
 	SDL_QueryTexture(s->get_texture().get(), NULL, NULL, &w, &h); // get the width and height of the texture
 	// put the location where we want the texture to be drawn into a rectangle
 	// I'm also scaling the texture 2x simply by setting the width and height
-	SDL_Rect texr; texr.x = WIDTH/2; texr.y = HEIGHT/2; texr.w = w*2; texr.h = h*2; 
-	s->set_location(&texr);
+    SDL_Rect_ptr texr = SDL_RECT(WIDTH/2, HEIGHT/2, w*2, h*2);
+	s->set_location(texr);
 
 	// main loop
 	while (1) {

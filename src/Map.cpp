@@ -62,11 +62,7 @@ namespace dngine{
 	}
 
 	void Map::load_spritesheet(){
-		SDL_Rect clip;
-		clip.x= clip.y = 0;
-		clip.w = tile_width;
-		clip.h = tile_height;
-
-		spritesheet = new SpriteSheet(renderer, tilesheet, &clip, tile_max_x, tile_max_y);
+		SDL_Rect_ptr clip = SDL_RECT(0,0, tile_width, tile_height);
+		spritesheet = new SpriteSheet(renderer, tilesheet, clip, tile_max_x, tile_max_y);
 	}
 }

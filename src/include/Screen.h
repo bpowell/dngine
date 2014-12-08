@@ -20,7 +20,7 @@ namespace dngine{
 			~Screen();
 			SDL_Renderer_ptr get_renderer();
 			void add_sprite(std::string name, Sprite *s);
-			void set_camera_and_follow(SDL_Rect *pos, Sprite *s);
+			void set_camera_and_follow(SDL_Rect_ptr pos, Sprite *s);
 			void remove_sprite(std::string name);
 			void render();
 	};
