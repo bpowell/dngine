@@ -2,7 +2,12 @@
 #include <Screen.h>
 #include <global.h>
 #include <SDL2/SDL.h>
+
+#ifdef __APPLE__
+#include <SDL2_image/SDL_image.h>
+#else
 #include <SDL2/SDL_image.h>
+#endif
 
 #define WIDTH 800
 #define HEIGHT 600
